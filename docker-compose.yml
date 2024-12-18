@@ -1,0 +1,24 @@
+version: '3'
+services:
+  random-4k:
+    build: .
+    container_name: random-4k-image
+    network_mode: bridge
+    ports:
+      - "12673:3000"
+    volumes:
+      - /mnt/user/appdata/docker/random-4k/server.js:/app/server.js:ro
+    environment:
+      - NODE_ENV=production
+      - MINIO_ENDPOINT=192.168.1.101
+      - MINIO_PORT=9001
+      - MINIO_ACCESS_KEY=jiawen
+      - MINIO_SECRET_KEY=x83BCIQ3xuAIC9iwDV667Zlqs
+      - MINIO_USE_SSL=false
+      - MINIO_BUCKET=backgroudimage
+    restart: always
+
+
+networks:
+  minio_network:
+    driver: bridge
