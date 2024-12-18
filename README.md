@@ -69,8 +69,8 @@ docker-compose up -d
 
 | 变量名 | 说明 | 默认值 |
 |:--------:|:------:|:--------:|
-| MINIO_ENDPOINT | Minio 服务器地址 | minio.sujiawen.com |
-| MINIO_PORT | Minio 端口 | 8888 |
+| MINIO_ENDPOINT | Minio 服务器地址 | 192.168.1.101 |
+| MINIO_PORT | Minio 端口 | 9001 |
 | MINIO_ACCESS_KEY | 访问密钥 | jiawen |
 | MINIO_SECRET_KEY | 访问密钥 | - |
 | MINIO_USE_SSL | 是否使用 SSL | false |
