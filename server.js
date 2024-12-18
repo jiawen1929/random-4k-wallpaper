@@ -4,9 +4,9 @@ const app = express();
 
 // 从环境变量获取 Minio 配置
 const minioClient = new Minio.Client({
-    endPoint: process.env.MINIO_ENDPOINT || 'minio.sujiawen.com',
-    port: parseInt(process.env.MINIO_PORT) || 8888,
-    useSSL: process.env.MINIO_USE_SSL === 'true',
+    endPoint: process.env.MINIO_ENDPOINT || '192.168.1.101',
+    port: parseInt(process.env.MINIO_PORT) || 9001,
+    useSSL: process.env.MINIO_USE_SSL === 'false',
     accessKey: process.env.MINIO_ACCESS_KEY || 'jiawen',
     secretKey: process.env.MINIO_SECRET_KEY || 'x83BCIQ3xuAIC9iwDV667Zlq'
 });
@@ -14,8 +14,16 @@ const minioClient = new Minio.Client({
 // 从环境变量获取存储桶名称
 const bucketName = process.env.MINIO_BUCKET || 'backgroudimage';
 
-app.get('/random-4k', async (req, res) => {
+app.get('/', async (req, res) => {
     try {
+        console.log('Minio 配置:', {
+            endPoint: process.env.MINIO_ENDPOINT,
+            port: parseInt(process.env.MINIO_PORT),
+            useSSL: process.env.MINIO_USE_SSL === 'true',
+            accessKey: process.env.MINIO_ACCESS_KEY,
+            bucket: process.env.MINIO_BUCKET
+        });
+
         // 列出所有对象
         const objects = [];
         const stream = minioClient.listObjects(bucketName, '', true);
@@ -40,7 +48,12 @@ app.get('/random-4k', async (req, res) => {
         });
 
         stream.on('error', (err) => {
-            console.error(err);
+            console.error('Minio 错误:', {
+                code: err.code,
+                message: err.message,
+                bucket: err.bucketname,
+                requestId: err.requestid
+            });
             res.status(500).send('服务器错误');
         });
 

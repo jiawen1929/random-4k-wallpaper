@@ -61,7 +61,7 @@ docker-compose up -d
 
 ### 4. 访问服务
 
-访问 `http://localhost:12673/random-4k` 获取随机壁纸。
+访问 `http://localhost:12673` 获取随机壁纸。
 
 ## ⚙️ 配置说明
 
@@ -126,7 +126,7 @@ pm2 start ecosystem.config.js
 - 定期检查和清理临时访问链接
 - 建议配置访问日志和监控
 
-## 📄 License
+## ��� License
 
 MIT License © 2024 [jiawen1929](https://github.com/jiawen1929)
 

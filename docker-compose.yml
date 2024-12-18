@@ -13,7 +13,7 @@ services:
       - MINIO_ENDPOINT=192.168.1.101
       - MINIO_PORT=9001
       - MINIO_ACCESS_KEY=jiawen
-      - MINIO_SECRET_KEY=x83BCIQ3xuAIC9iwDV667Zlqs
+      - MINIO_SECRET_KEY=x83BCIQ3xuAIC9iwDV667Zlq
       - MINIO_USE_SSL=false
       - MINIO_BUCKET=backgroudimage
     restart: always
