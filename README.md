@@ -26,11 +26,8 @@
 ```tree
 ├── Dockerfile           # Docker 镜像构建文件
 ├── docker-compose.yml   # Docker Compose 配置文件
-├── ecosystem.config.js  # PM2 配置文件（可选）
 ├── package.json        # Node.js 项目配置
-├── server.js           # 主服务程序
-├── download_images.py  # 图片下载工具
-└── delete_images.py    # 图片删除工具
+└── server.js           # 主服务程序
 ```
 
 ## 🚀 快速开始
